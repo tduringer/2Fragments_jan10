@@ -50,7 +50,7 @@ class FormFragment : Fragment() {
                 // FragmentManger allows us to perform transaction.
                 // Use replace to switch between fragments.
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_view, EmailFormFragment::class.java, bundle)
+                    .replace(R.id.fragment_container_view, EmailFragment::class.java, bundle)
                     .addToBackStack(null)
                     .commit()
             }

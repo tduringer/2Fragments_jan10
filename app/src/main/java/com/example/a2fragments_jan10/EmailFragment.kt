@@ -10,7 +10,7 @@ import com.example.a2fragments_jan10.databinding.FragmentEmailFormBinding
 
 
 // Import androidx fragment
-class EmailFormFragment: Fragment() {
+class EmailFragment: Fragment() {
 
     // Let the binding be nullable
     private var _binding: FragmentEmailFormBinding? = null
@@ -34,7 +34,7 @@ class EmailFormFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             emailEt.editText?.addTextChangedListener { text ->
-                Log.d(EmailFormFragment.TAG, text.toString())
+                Log.d(EmailFragment.TAG, text.toString())
                 firstName = (arguments?.get("First") ?: "First").toString()
                 lastName = (arguments?.get("Last") ?: "Last").toString()
 
@@ -42,7 +42,7 @@ class EmailFormFragment: Fragment() {
             }
 
             nextBtn.setOnClickListener {
-                Log.d(EmailFormFragment.TAG, "nexBtn Clicked")
+                Log.d(EmailFragment.TAG, "nexBtn Clicked")
                 // Create bundle to pass data in fragment transaction.
                 val email = emailEt.editText?.text.toString()
                 val bundle = Bundle()
@@ -50,12 +50,12 @@ class EmailFormFragment: Fragment() {
                 bundle.putString("Last", lastName)
                 bundle.putString("Email", email)
 
-                Log.d(EmailFormFragment.TAG, "email is $email")
+                Log.d(EmailFragment.TAG, "email is $email")
 
                 // FragmentManger allows us to perform transaction.
                 // Use replace to switch between fragments.
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container_view, InfoFragment::class.java, bundle)
+                    .replace(R.id.fragment_container_view, PasswordFragment::class.java, bundle)
                     .addToBackStack(null)
                     .commit()
             }
@@ -69,6 +69,6 @@ class EmailFormFragment: Fragment() {
         }
 
         companion object {
-            val TAG = EmailFormFragment::class.java.name
+            val TAG = EmailFragment::class.java.name
         }
 }

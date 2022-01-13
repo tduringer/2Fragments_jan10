@@ -27,6 +27,8 @@ class InfoFragment: Fragment() {
             // Data in fragment manager is arguments instead of intent.
             firstNameTv.text = arguments?.getString("First") ?: "First"
             lastNameTv.text = arguments?.getString("Last") ?: "Last"
+            emailTv.text = arguments?.getString("Email") ?: "Email"
+            passwordTv.text = arguments?.getString("Password") ?: "Password"
         }
     }
 
